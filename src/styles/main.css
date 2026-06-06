@@ -1,0 +1,11 @@
+/*
+ * Gymundo Main CSS Bundler
+ * Compiles all theme, page, layout and third-party library stylesheets (Leaflet).
+ */
+
+@import './variables.css';
+@import 'leaflet/dist/leaflet.css';
+@import './global.css';
+@import './navbar.css';
+@import './footer.css';
+@import './pages.css';
