@@ -13,7 +13,8 @@ The platform also allows users to **add new gyms** and **edit existing gym detai
 GymUndo is proudly featured on AppUndo, a curated directory of hyper-local web applications and community-built tools designed for the people of Kerala.
 AppUndo brings together useful digital services across multiple categories—including utilities, transport, health, weather, community, and local discovery—making it easier for users to find practical solutions in one place.
 As a member of the AppUndo ecosystem, GymUndo contributes to this vision by helping users discover gyms across all 14 districts of Kerala through an interactive, community-driven platform.
-<div align="center"> ### GymUndo on AppUndo <img src="./screenshots/gymundo.png" alt="GymUndo featured on AppUndo" width="1000"/> </div>
+
+<div align="center"> <img src="./screenshots/gymundo.png" alt="GymUndo featured on AppUndo" width="1000"/> </div>
 
 --- 
 
