@@ -28,6 +28,7 @@ export const GymCard: React.FC<GymCardProps> = ({ gym }) => {
           <img 
             src={gym.images[0]} 
             alt={`${gym.name} facility`} 
+            referrerPolicy="no-referrer"
             className="gym-card-img"
             loading="lazy"
           />

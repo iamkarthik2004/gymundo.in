@@ -278,7 +278,7 @@ export const EditGymModal: React.FC<EditGymModalProps> = ({ gym, isOpen, onClose
             <div>
               <label className="form-label">Google Maps URL</label>
               <input 
-                type="url" 
+                type="text" 
                 className="input-field" 
                 value={mapUrl} 
                 onChange={(e) => setMapUrl(e.target.value)} 
@@ -374,17 +374,24 @@ export const EditGymModal: React.FC<EditGymModalProps> = ({ gym, isOpen, onClose
             </h3>
 
             <div>
-              <label className="form-label">Brand Logo URL</label>
+              <label className="form-label">Brand Logo URL (Direct image link / Instagram CDN / Unsplash / Imgur)</label>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                 <input 
-                  type="url" 
+                  type="text" 
                   className="input-field" 
                   value={logoUrl} 
                   onChange={(e) => setLogoUrl(e.target.value)} 
+                  placeholder="Paste direct image or Instagram link..."
                   style={{ flex: 1 }}
                 />
                 <div style={{ width: '44px', height: '44px', borderRadius: '8px', border: '1px solid var(--border-color)', overflow: 'hidden', flexShrink: 0 }}>
-                  <img src={logoUrl} alt="Logo preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.currentTarget.src = gym.logo; }} />
+                  <img 
+                    src={logoUrl} 
+                    alt="Logo preview" 
+                    referrerPolicy="no-referrer"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    onError={(e) => { e.currentTarget.src = gym.logo; }} 
+                  />
                 </div>
               </div>
             </div>
@@ -396,9 +403,9 @@ export const EditGymModal: React.FC<EditGymModalProps> = ({ gym, isOpen, onClose
               {/* Add new photo input */}
               <div style={{ display: 'flex', gap: '10px', marginBottom: '16px' }}>
                 <input 
-                  type="url" 
+                  type="text" 
                   className="input-field" 
-                  placeholder="Paste new photo web URL (e.g. Unsplash, Imgur, direct image link)..." 
+                  placeholder="Paste photo web URL (Unsplash, Imgur, Instagram CDN, direct image link)..." 
                   value={newImageUrl} 
                   onChange={(e) => setNewImageUrl(e.target.value)}
                   style={{ flex: 1 }}
@@ -418,7 +425,12 @@ export const EditGymModal: React.FC<EditGymModalProps> = ({ gym, isOpen, onClose
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '12px' }}>
                 {images.map((url, index) => (
                   <div key={index} style={{ position: 'relative', borderRadius: '10px', overflow: 'hidden', border: '1px solid var(--border-color)', aspectRatio: '4/3', backgroundColor: 'var(--bg-tertiary)' }}>
-                    <img src={url} alt={`Gallery ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img 
+                      src={url} 
+                      alt={`Gallery ${index + 1}`} 
+                      referrerPolicy="no-referrer"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                    />
                     <button 
                       type="button"
                       onClick={() => handleRemoveImage(index)}

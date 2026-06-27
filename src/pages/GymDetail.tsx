@@ -67,12 +67,12 @@ export const GymDetail: React.FC = () => {
       <div className="container">
         <div className="gym-gallery" style={{ position: 'relative' }}>
           {/* Main Large Photo */}
-          <img src={gym.images[0]} alt={`${gym.name} interior`} className="gallery-main" />
+          <img src={gym.images[0]} alt={`${gym.name} interior`} referrerPolicy="no-referrer" className="gallery-main" />
           
           {/* Right Thumbnails Column (if photos exist) */}
           <div className="gallery-thumbs">
-            <img src={gym.images[1] || gym.images[0]} alt={`${gym.name} cardio deck`} className="gallery-thumb" />
-            <img src={gym.images[2] || gym.images[0]} alt={`${gym.name} facility`} className="gallery-thumb" />
+            <img src={gym.images[1] || gym.images[0]} alt={`${gym.name} cardio deck`} referrerPolicy="no-referrer" className="gallery-thumb" />
+            <img src={gym.images[2] || gym.images[0]} alt={`${gym.name} facility`} referrerPolicy="no-referrer" className="gallery-thumb" />
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ export const GymDetail: React.FC = () => {
             {/* Header Block with Brand Logo */}
             <div className="gym-header-block" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-                <img src={gym.logo} alt={`${gym.name} logo`} className="gym-large-logo" />
+                <img src={gym.logo} alt={`${gym.name} logo`} referrerPolicy="no-referrer" className="gym-large-logo" />
                 <div className="gym-title-meta">
                   <h1 style={{ fontSize: '36px', fontWeight: '800', letterSpacing: '-0.5px' }}>{gym.name}</h1>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px' }}>
