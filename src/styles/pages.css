@@ -994,6 +994,7 @@
   background-color: #f4f4f4 !important;
   color: var(--accent-color) !important;
 }
+<<<<<<< HEAD
 
 /* Modal animation styles */
 .modal-overlay {
@@ -1020,3 +1021,5 @@
   }
 }
 
+=======
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512

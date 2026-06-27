@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Star, MapPin, Phone, Mail, Clock, ShieldCheck, Edit } from 'lucide-react';
 import { MapComponent } from '../components/MapComponent';
 import { useGyms } from '../context/GymContext';
 import { EditGymModal } from '../components/EditGymModal';
+=======
+import React, { useMemo } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, Star, MapPin, Phone, Mail, Clock, ShieldCheck } from 'lucide-react';
+import { MapComponent } from '../components/MapComponent';
+import { useGyms } from '../context/GymContext';
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
 
 /**
  * GymDetail Page Component
@@ -16,7 +24,10 @@ export const GymDetail: React.FC = () => {
   const parsedGymId = parseInt(gymId || '0', 10);
 
   const { gyms } = useGyms();
+<<<<<<< HEAD
   const [isEditOpen, setIsEditOpen] = useState(false);
+=======
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
 
   // Retrieve gym object matching the URL ID
   const gym = gyms.find((g) => g.id === parsedGymId);
@@ -45,13 +56,18 @@ export const GymDetail: React.FC = () => {
     <div className="gym-detail-page" style={{ paddingBottom: '80px' }}>
       
       {/* 1. BREADCRUMBS HEADER */}
+<<<<<<< HEAD
       <div className="container" style={{ padding: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+=======
+      <div className="container" style={{ padding: '24px' }}>
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
         <Link 
           to={`/districts/${gym.district.toLowerCase().replace(/\s+/g, '')}`} 
           style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--accent-color)', fontSize: '14px', fontWeight: '600' }}
         >
           <ArrowLeft size={16} /> Back to {gym.district} Gyms
         </Link>
+<<<<<<< HEAD
         
         <button 
           onClick={() => setIsEditOpen(true)}
@@ -61,11 +77,17 @@ export const GymDetail: React.FC = () => {
           <Edit size={14} style={{ color: 'var(--accent-color)' }} />
           <span>Edit Profile & Photos</span>
         </button>
+=======
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
       </div>
 
       {/* 2. PHOTO GALLERY GRID */}
       <div className="container">
+<<<<<<< HEAD
         <div className="gym-gallery" style={{ position: 'relative' }}>
+=======
+        <div className="gym-gallery">
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
           {/* Main Large Photo */}
           <img src={gym.images[0]} alt={`${gym.name} interior`} className="gallery-main" />
           
@@ -85,6 +107,7 @@ export const GymDetail: React.FC = () => {
           <main className="gym-main-info">
             
             {/* Header Block with Brand Logo */}
+<<<<<<< HEAD
             <div className="gym-header-block" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
                 <img src={gym.logo} alt={`${gym.name} logo`} className="gym-large-logo" />
@@ -110,6 +133,22 @@ export const GymDetail: React.FC = () => {
                 <Edit size={16} />
                 <span>Edit Gym</span>
               </button>
+=======
+            <div className="gym-header-block">
+              <img src={gym.logo} alt={`${gym.name} logo`} className="gym-large-logo" />
+              <div className="gym-title-meta">
+                <h1 style={{ fontSize: '36px', fontWeight: '800', letterSpacing: '-0.5px' }}>{gym.name}</h1>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '4px' }}>
+                  <span style={{ color: 'var(--accent-color)', fontWeight: '600', textTransform: 'uppercase', fontSize: '13px', letterSpacing: '1px' }}>
+                    {gym.district} District
+                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px', fontSize: '14px', fontWeight: '600' }}>
+                    <Star size={16} fill="var(--accent-color)" color="var(--accent-color)" />
+                    <span>{gym.rating.toFixed(1)} Rating</span>
+                  </div>
+                </div>
+              </div>
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
             </div>
 
             {/* Description Text */}
@@ -229,6 +268,7 @@ export const GymDetail: React.FC = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Edit Gym Modal */}
       <EditGymModal 
         gym={gym}
@@ -240,3 +280,8 @@ export const GymDetail: React.FC = () => {
   );
 };
 
+=======
+    </div>
+  );
+};
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512

@@ -7,7 +7,10 @@ interface GymContextType {
   districts: District[];
   reviews: Review[];
   addGym: (gym: Omit<Gym, 'id' | 'rating'>) => Gym;
+<<<<<<< HEAD
   updateGym: (updatedGym: Gym) => void;
+=======
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
   addReview: (review: Review) => void;
 }
 
@@ -31,6 +34,7 @@ export const GymProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       try {
         const parsedGyms = JSON.parse(storedGyms);
         if (Array.isArray(parsedGyms)) {
+<<<<<<< HEAD
           // Map stored gyms by ID to retain user edits to mock gyms
           const parsedGymMap = new Map(parsedGyms.map((g: Gym) => [g.id, g]));
           const mergedMockGyms = mockGyms.map(g => parsedGymMap.get(g.id) || g);
@@ -38,6 +42,13 @@ export const GymProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const userAddedGyms = parsedGyms.filter((g: Gym) => !mockGymIds.has(g.id));
           // Merge mockGyms with user-added gyms
           loadedGyms = [...mergedMockGyms, ...userAddedGyms];
+=======
+          // Identify user-added gyms (gyms whose IDs are not in mockGyms)
+          const mockGymIds = new Set(mockGyms.map(g => g.id));
+          const userAddedGyms = parsedGyms.filter(g => !mockGymIds.has(g.id));
+          // Merge mockGyms with user-added gyms
+          loadedGyms = [...mockGyms, ...userAddedGyms];
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
           // Update localStorage with the merged result to sync it
           localStorage.setItem('gymundo_gyms', JSON.stringify(loadedGyms));
         }
@@ -56,7 +67,11 @@ export const GymProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         const parsedReviews = JSON.parse(storedReviews);
         if (Array.isArray(parsedReviews)) {
           const mockReviewIds = new Set(mockReviews.map(r => r.id));
+<<<<<<< HEAD
           const userReviews = parsedReviews.filter((r: Review) => !mockReviewIds.has(r.id));
+=======
+          const userReviews = parsedReviews.filter(r => !mockReviewIds.has(r.id));
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
           loadedReviews = [...mockReviews, ...userReviews];
           localStorage.setItem('gymundo_reviews', JSON.stringify(loadedReviews));
         }
@@ -85,12 +100,15 @@ export const GymProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return newGym;
   };
 
+<<<<<<< HEAD
   const updateGym = (updatedGym: Gym) => {
     const updatedGyms = gyms.map(g => (g.id === updatedGym.id ? updatedGym : g));
     setGyms(updatedGyms);
     localStorage.setItem('gymundo_gyms', JSON.stringify(updatedGyms));
   };
 
+=======
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
   const addReview = (newReview: Review) => {
     const updatedReviews = [newReview, ...reviews];
     setReviews(updatedReviews);
@@ -128,7 +146,11 @@ export const GymProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }
 
   return (
+<<<<<<< HEAD
     <GymContext.Provider value={{ gyms, districts, reviews, addGym, updateGym, addReview }}>
+=======
+    <GymContext.Provider value={{ gyms, districts, reviews, addGym, addReview }}>
+>>>>>>> 16137da963556a103be0c0af0a4fe6a10fa67512
       {children}
     </GymContext.Provider>
   );
