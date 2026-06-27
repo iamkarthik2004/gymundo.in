@@ -57,7 +57,7 @@ export const Home: React.FC = () => {
           {/* Large Reusable Search Bar Form */}
           <form onSubmit={handleSearchSubmit} className="hero-search-wrapper">
             <SearchBar
-              placeholder="Search by district or gym name (e.g., Ernakulam, Olympia)..."
+              placeholder="Search by district or gym name (e.g., Kottayam, Eranakulam)..."
               value={searchQuery}
               onChange={setSearchQuery}
               onClear={() => setSearchQuery('')}
